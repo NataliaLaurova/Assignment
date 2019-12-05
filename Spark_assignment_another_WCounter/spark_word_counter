@@ -1,0 +1,39 @@
+Spark Word Counter
+
+build.sbt
+----context
+name := "Spark_assignment"
+
+version := "0.1"
+
+scalaVersion := "2.11.0"
+
+// https://mvnrepository.com/artifact/org.apache.spark/spark-core
+libraryDependencies += "org.apache.spark" %% "spark-core" % "2.4.4"
+
+// https://mvnrepository.com/artifact/org.apache.spark/spark-sql
+libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.4.4"
+
+
+ ----context of file
+WordCount.scala
+package com.enhanceit
+
+import org.apache.spark.{SparkConf, SparkContext}
+
+
+object WordCount {
+
+  def main(args: Array[String]): Unit ={
+    //Create SparkConfig object SparkContext to initialize Spark
+    val inputFile = args(0)
+    val outputFile = args(1)
+    val conf = new SparkConf().setMaster("local[*]").setAppName("WordCount")
+    val sc = new SparkContext(conf)
+    val input = sc.textFile(inputFile)
+    val words = input.flatMap(_.split(" "))
+    val counts = words.map((_,1)).reduceByKey(_+_)
+    counts.saveAsTextFile(outputFile)
+  }
+
+}

@@ -11,7 +11,7 @@ CREATE EXTERNAL TABLE engineers
         City string,
         Country string,
         Salary string,
-        department string)
+        department_id string)
 ROW FORMAT DELIMITED
 LOCATION '/hive/enhance_dbs/engineers'
 FIELDS TERMINATED BY '\t'

@@ -1,0 +1,39 @@
+USE enhanceit;
+
+select 
+sum(count_emp + count_man) emloyees
+from
+(Select 
+count(distinct last_name) count_emp,
+count(distinct manager_id) count_man
+from engineers ) m ;
+
+
+create table temp as 
+(Select 
+count(distinct last_name) count_emp
+from engineers
+union
+select count(distinct id) count_man
+from managers) ;
+
+select 
+sum(count_emp + count_man) emloyees from temp;
+
+
+create table temp as  
+Select 
+count(distinct last_name) count_emp,
+count(distinct manager_id) count_man
+from engineers 
+
+
+select 
+sum(m.count_emp + m.count_manager) employees
+from
+(Select 
+count(distinct id) count_emp
+from engineers
+union
+select count(distinct id) count_manager
+from managers) m ;
