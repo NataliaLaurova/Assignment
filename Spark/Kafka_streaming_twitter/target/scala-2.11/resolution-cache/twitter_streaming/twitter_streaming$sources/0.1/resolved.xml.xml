@@ -4,7 +4,7 @@
 		module="twitter_streaming$sources"
 		revision="0.1"
 		status="integration"
-		publication="20191203183518"
+		publication="20191209093224"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

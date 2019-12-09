@@ -62,11 +62,10 @@ object KafkaReceiver {
     //new_line
 
     new_line.foreachRDD { rdd =>
-      //val rdd_raw = tweet.map(x => Row(x._1, x._2)).
       val df = ss.createDataFrame(rdd, schema)
       //df.createOrReplaceTempView("Tweet")
       df.show()
-      df.write.mode(SaveMode.Append).saveAsTable("default.test")
+      //df.write.mode(SaveMode.Append).saveAsTable("default.test")
       //df.printSchema()
       //df.write.saveAsTable("")
     }
