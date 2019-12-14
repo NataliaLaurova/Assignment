@@ -4,7 +4,7 @@
 		module="kafka_streaming_twitter-build"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20191201195402"
+		publication="20191210093455"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>

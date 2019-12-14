@@ -4,7 +4,7 @@
 		module="twitter_streaming_2.11"
 		revision="0.1"
 		status="integration"
-		publication="20191207164026"
+		publication="20191210093509"
 	>
 		<description>
 		Twitter_Streaming
@@ -30,12 +30,15 @@
 		<artifact name="twitter_streaming_2.11" type="doc" ext="jar" conf="compile" e:classifier="javadoc"/>
 	</publications>
 	<dependencies>
-		<dependency org="org.scala-lang" name="scala-compiler" rev="2.11.0" conf="scala-tool->default,optional(default)"/>
-		<dependency org="org.scala-lang" name="scala-library" rev="2.11.0" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="org.scala-lang" name="scala-compiler" rev="2.11.8" conf="scala-tool->default,optional(default)"/>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.11.8" conf="scala-tool->default,optional(default);compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-core_2.11" rev="2.4.4" conf="compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-sql_2.11" rev="2.4.4" conf="compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-streaming-kafka-0-10_2.11" rev="2.4.4" conf="compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-streaming_2.11" rev="2.4.4" conf="compile->default(compile)"/>
 		<dependency org="org.scala-lang.modules" name="scala-parser-combinators_2.11" rev="1.1.2" conf="compile->default(compile)"/>
+		<dependency org="org.apache.spark" name="spark-hive_2.11" rev="2.4.4" conf="compile->default(compile)"/>
+		<dependency org="org.apache.hive" name="hive-common" rev="2.1.0" conf="compile->default(compile)"/>
+		<dependency org="org.apache.logging.log4j" name="log4j-api" rev="2.6.2" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>
