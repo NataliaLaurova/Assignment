@@ -10,3 +10,4 @@ Assignment
 8. Twitter producer (Python, scala)
 9. SparkStreaming (from kafka to hive) Python
 10. SparkStreaming (from kafka to hive) Scala
+11. Bash Script for run kafka-server

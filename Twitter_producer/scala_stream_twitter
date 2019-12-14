@@ -33,10 +33,10 @@ object StreamTwitter {
     val ssc = new StreamingContext(conf, Seconds(10))
     ssc.addStreamingListener( new StreamingListener )
     // values of Twitter API.
-    val consumerKey = "dZuBNJ30MTqMptFLPRIDZW10r"
-    val consumerSecret = "w13ZgbBTLjziltB4OJbAbyNos2EbPAMwymVLEcX3wwv4Qdciu1"
-    val accessToken = "714804243371319296-emEQMO6N5kP7iHW7hBqcT27qnvHs1mP"
-    val accessTokenSecret = "X3yU1lIRfst73wGqcT6uimvsVrRxI0Mf8symf2YOW08cI"
+    val consumerKey = ""
+    val consumerSecret = ""
+    val accessToken = ""
+    val accessTokenSecret = ""
 
     //Connection to Twitter API
     val cb = new ConfigurationBuilder
