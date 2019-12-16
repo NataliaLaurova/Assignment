@@ -1,0 +1,36 @@
+ Intstall HBase
+ https://hbase.apache.org/book.html
+ sudo wget http://apache-mirror.8birdsvideo.com/hbase/1.5.0/hbase-1.5.0-bin.tar.gz
+tar xzvf hbase-1.5.0-bin.tar.gz
+cd hbase-1.5.0/
+add in conf/hbase-env.sh 
+JAVA_HOME
+cd conf/hbase-site.xml
+add to file 
+<property>
+        <name>hbase.rootdir</name>
+        <value>hdfs://localhost:9000/hbase</value>
+    </property>
+        <property>
+        <name>hbase.zookeeper.quorum</name>
+        <value>localhost</value>
+    </property>
+        <property>
+        <name>hbase.zookeeper.property.clientPort</name>
+        <value>2182</value>
+    </property>
+            <property>
+        <name>hbase.zookeeper.property.dataDir</name>
+        <value>/usr/local/hbase-1.5.0/zookeeper</value>
+    </property>
+    <property>
+     <name>hbase.cluster.distributed</name>
+     <value>true</value>
+   </property>
+	<property>
+    <name>dfs.replication</name>
+    <value>1</value>
+  </property>
+  
+
+  start-hbase.sh

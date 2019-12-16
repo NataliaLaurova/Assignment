@@ -23,8 +23,8 @@ object KafkaReceiver {
     val ss = SparkSession
       .builder
       .appName("KafkaReceiver")
-      .config("spark.sql.warehouse.dir", "dbfs://localhost:9000/user/hive/warehouse")
-      .config("hive.metastore.uris", "thrift://localhost:9083")
+      .config("spark.hadoop.hive.metastore.warehouse.dir", "/user/hive/warehouse")
+      //.config("hive.metastore.uris", "thrift://localhost:9083")
       .enableHiveSupport()
       .getOrCreate()
 
@@ -63,11 +63,12 @@ object KafkaReceiver {
 
     new_line.foreachRDD { rdd => if (!rdd.isEmpty()) {
       val df = ss.createDataFrame(rdd, schema)
-      //df.createOrReplaceTempView("Tweet")
-      //df.show(false)
-      //dbutils.fs.rm("dbfs:/user/hive/warehouse/month_x2/", true)
-      df.write.mode(SaveMode.Append).saveAsTable("TweetNew")//"default.test")
-      println(ss.sql("select * from TweetNew").count())
+      df.createOrReplaceTempView("tempTable")
+      //val ss.sqlContext = new org.apache.spark.sql.hive.HiveContext(ss.sparkContext)
+      ss.sqlContext.sql("insert into default.test select * from tempTable");
+      //df.write.mode(SaveMode.Append).saveAsTable("default.tweets")//"default.test")
+      //df.write.mode("overwrite").saveAsTable("default.test")
+      println(ss.sql("select * from default.test").count())
       //df.printSchema()
       //df.write.saveAsTable("")
       }
